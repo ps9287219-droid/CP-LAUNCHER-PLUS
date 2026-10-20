@@ -1,0 +1,97 @@
+
+        // PREMIUM CP LAUNCHER LOGO + BRAND HEADER
+        val brandRow = LinearLayout(this).apply {
+            gravity = Gravity.CENTER_VERTICAL
+            orientation = LinearLayout.HORIZONTAL
+        }
+
+        // Rounded square logo background
+        val logoBox = LinearLayout(this).apply {
+            gravity = Gravity.CENTER
+            background = GradientDrawable(
+                GradientDrawable.Orientation.TL_BR,
+                intArrayOf(
+                    Color.rgb(130, 255, 145),
+                    Color.rgb(35, 190, 85)
+                )
+            ).apply {
+                cornerRadius = dp(15).toFloat()
+                setStroke(dp(1), Color.rgb(170, 255, 175))
+            }
+        }
+
+        // CP monogram
+        val logoText = TextView(this).apply {
+            text = "CP"
+            textSize = 25f
+            setTextColor(Color.rgb(10, 32, 18))
+            typeface = Typeface.create(
+                "sans-serif-black",
+                Typeface.BOLD
+            )
+            gravity = Gravity.CENTER
+            letterSpacing = -0.04f
+        }
+
+        logoBox.addView(
+            logoText,
+            LinearLayout.LayoutParams(-1, -1)
+        )
+
+        brandRow.addView(
+            logoBox,
+            LinearLayout.LayoutParams(dp(58), dp(58))
+        )
+
+        // Brand name and subtitle
+        val brandInfo = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(dp(13), 0, 0, 0)
+        }
+
+        val brandName = TextView(this).apply {
+            text = "CP LAUNCHER"
+            textSize = 19f
+            setTextColor(Color.WHITE)
+            typeface = Typeface.create(
+                "sans-serif-black",
+                Typeface.BOLD
+            )
+            letterSpacing = 0.02f
+        }
+
+        val brandSubtitle = TextView(this).apply {
+            text = "MINECRAFT JAVA EDITION"
+            textSize = 10f
+            setTextColor(Color.rgb(145, 235, 160))
+            typeface = Typeface.DEFAULT_BOLD
+            letterSpacing = 0.06f
+        }
+
+        brandInfo.addView(brandName)
+        brandInfo.addView(brandSubtitle)
+
+        brandRow.addView(
+            brandInfo,
+            LinearLayout.LayoutParams(0, -2, 1f)
+        )
+
+        // Version label
+        val versionText = TextView(this).apply {
+            text = "v1.0"
+            textSize = 11f
+            setTextColor(Color.rgb(161, 174, 190))
+            gravity = Gravity.CENTER
+            background = GradientDrawable().apply {
+                setColor(Color.rgb(35, 43, 54))
+                cornerRadius = dp(10).toFloat()
+            }
+            setPadding(dp(10), dp(7), dp(10), dp(7))
+        }
+
+        brandRow.addView(versionText)
+
+        content.addView(
+            brandRow,
+            LinearLayout.LayoutParams(-1, -2)
+        )
